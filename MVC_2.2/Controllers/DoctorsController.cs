@@ -138,7 +138,7 @@ namespace MVC_2._2.Controllers
             var doctor = db.Doctors.Find(dp.DoctorID);
             doctor.patients.Add(patient);
             db.SaveChanges();
-            return RedirectToAction("Index");   
+            return RedirectToAction("Details", new {id = doctor.Id});   
         }
         protected override void Dispose(bool disposing)
         {
