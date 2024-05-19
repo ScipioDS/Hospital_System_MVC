@@ -1,0 +1,23 @@
+﻿@model MVC_2._2.Models.DoctorPatients
+@{
+    ViewBag.Title = "InsertNewPatient";
+}
+
+<h2>InsertNewPatient</h2>
+
+@using (Html.BeginForm("InsertNewPatient", "Doctors"))
+{
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.DropDownListFor(m => m.PatientID, new SelectList(Model.Patients, "Id", "Name"),
+            new { @class = "form-control" })
+
+            @Html.HiddenFor(m => m.DoctorID)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+}
